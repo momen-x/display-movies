@@ -7,7 +7,8 @@ import StarOutlinedIcon from "@mui/icons-material/StarOutlined";
 import StarOutlineOutlinedIcon from "@mui/icons-material/StarOutlineOutlined";
 import StarHalfOutlinedIcon from "@mui/icons-material/StarHalfOutlined";
 import { Button } from "@mui/material";
-
+//import token
+import { myToken } from "./CardPage/token"; 
 // ... (keep your existing evaluationIcon array)
 const evaluationIcon = [
   {
@@ -187,13 +188,15 @@ function App() {
     const url = `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}`;
     const headers = {
       accept: "application/json",
-      Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMzU4ZTNlZTUyOTE5NjQzNmJiMDQyYTg2NDg0MDI5NSIsIm5iZiI6MTc0ODc3MzUxMy40NzMsInN1YiI6IjY4M2MyYTg5ZWQ1OTU0NzM4ZGYyYWZlZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jteDrCr1q3ZDzy0HteJAY6ymiukX3YmC143CiHCtHZA",
+      Authorization: "Bearer"+myToken,
     };
 
     axios
       .get(url, { headers })
       .then((response) => {
+        
         let newData = response.data.results.map((item) => {
+          console.log(item.adult)
           setTotalPage(response.data.total_pages);
           return {
             classFication: item.adult,

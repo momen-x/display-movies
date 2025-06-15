@@ -29,15 +29,11 @@ evaluation : {evaluation}
  <br/>{children}
 </div>
         </Typography>
-        {/* <Typography component={'h4'}>
-          Type : {type}
-        </Typography> */}
+  
 <Typography component={'h4'} >
   ClassiFication : {ClassiFication}
 </Typography>
-{/* <Typography component={'h6'}>
-  origin country : {originCountry}
-</Typography> */}
+
       </CardContent>
    
     </Card>
